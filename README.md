@@ -1,2 +1,3 @@
-# map672
-Modules for NMP MAP672 course
+# Cynde Estep map672
+I'm excited to learn JS programming
+
