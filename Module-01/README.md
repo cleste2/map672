@@ -7,5 +7,6 @@ I'm excited to learn JS programming
 *Learn how to make a bullet point in brackets rather than using an astrisk
 *Learn how to use Brackets
 *Understand the basics of HTML, CSS and JavaScrip
+*Gain an understanding of how the above referenced coding works for web mapping
 *Get to know what Leaflet is and how it functions
 
