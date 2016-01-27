@@ -3,9 +3,10 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>MAP672 Module 2</title>
+    <title>MAP672 Module 2 Template</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
     <style>
         body {
             margin: 0;
@@ -14,10 +15,12 @@
             font-family: cursive;
             color: #3d3d3d;
         }
+/*       changing the h1 heading font size to 2.0 and left margin to 25*/
         h1 {
             font-size:2.0em;
             margin-left:25px;
         }            
+/*       changing the h1 header font size to 1.4 and left margin to 30px*/
         h2 {
             font-size:1.4em;
             margin-left:30px;
@@ -38,12 +41,14 @@
         img {
             margin-left:15px;
         }
+/*       this give the box element specific width, height, background color and margin*/
         #box {
             width: 200px;
             height: 200px;
             background: #3e6b93;
             margin: 25px;
         }
+/*       this gives all the circle elements specific width, height, background color, a border, display and margin */
         .circle {
             width:100px;
             height:100px;
@@ -62,6 +67,7 @@
     <h2>Digital representation of the globe</h2>
     <p>The cartographic gaze is intended to represent a God-like view from above. One that is all knowing.
         <img src="images/world2.png" alt="world map"><div id="map"></div>
+<!--   this creates a hyperlink to the bacon generator webpage-->
     <p>paragraph with link: <a href="https://baconipsum.com">bacon generator</a></p>
     <ul>
         <li><a href="http://leafletjs.com">Leaflet</a></li>
@@ -69,6 +75,7 @@
         <li><a href="https://cartodb.com">CartoDB</a></li>
         <li><a href="https://d3js.org">Data-Driven Documents</a></li>
     </ul>
+<!--    identifies the division element that identifies the id attribute of boxx-->
     <div id="box"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -82,6 +89,7 @@ var elements = document.getElementsByClassName('circle');
 for(var i=0; i <= elements.length-1;i++){
     elements[i].style['border-radius'] = '20%';  
 }
+//this attaches a click of the box selectio and then changes its width        
 box.addEventListener('click', function() {
     this.style.width = '400px';   
 });
