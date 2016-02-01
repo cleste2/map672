@@ -6,7 +6,7 @@
     <title>MAP672 Module 2 Template</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-</head>
+
     <style>
         body {
             margin: 0;
@@ -81,23 +81,28 @@
     <div class="circle"></div>
     <div class="circle"></div>
 
-    <script>
-document.querySelector('h1').innerHTML = 'web mapping is sweet!';
-var box = document.getElementById('box');
-box.style.background = '#4d4a9f'; 
-var elements = document.getElementsByClassName('circle');
-for(var i=0; i <= elements.length-1;i++){
-    elements[i].style['border-radius'] = '20%';  
-}
-//this attaches a click of the box selectio and then changes its width        
-box.addEventListener('click', function() {
-    this.style.width = '400px';   
-});
-var newListItem = document.createElement('li');
-newListItem.innerHTML = "list item 4";
-document.querySelector('ul').appendChild(newListItem);
-console.log("hello map");
-    </script>
+<script>
+    document.querySelector('h1').innerHTML = 'web mapping is sweet!';
+
+    var box = document.getElementById('box');
+    box.style.background = '#4d4a9f'; 
+
+    var elements = document.getElementsByClassName('circle');
+    for(var i=0; i <= elements.length-1;i++){
+        elements[i].style['border-radius'] = '20%';  
+    }
+    //this attaches a click of the box selectio and then changes its width        
+    box.addEventListener('click', function() {
+        this.style.width = '400px';   
+    });
+
+    var newListItem = document.createElement('li');
+    newListItem.innerHTML = "list item 4";
+    
+    document.querySelector('ul').appendChild(newListItem);
+    
+    console.log("hello map");
+</script>
     
     
 </body>
