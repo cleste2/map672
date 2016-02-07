@@ -58,8 +58,8 @@
 
     <footer>
         <p>Map authored by Cynde Estep</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Three cities including their population.</p>
+        <p>This map identifies three cities in Kentucky of different sizes.  Frankfort is the Capital of the Commonwealth.  The city is located along the Kentucky River in Franklin County.  Lexington is the city where I reside. It is the 2nd largest city in Kentucky and is known as the "Horse Captial of the World."  It is also ranked 10th in the US in college educated residents with 39.5% of residents having a college degree. Lexington is located in Fayette County.  The third most populated city in the state; Bowling Green, is where the Corvette Museum is located.  It is located in Warren County and was the capital of Conferate Kentucky during the civil war. 
         </p>
     </footer>
 
@@ -87,17 +87,56 @@
         var city1Name="Lexington";
         console.log(city1Name);
         
-        var city1Lat=38.0297
+        var city1Lat=38.0297;
         console.log(city1Lat);
         
-        var city1Lon=84.4947
+        var city1Lon=-84.4947;
         console.log(city1Lon);
         
-        var city1Pop=308428
+        var city1Pop=308428;
         console.log(city1Pop);
         
-        var city1Capital
+        var city1Capital;
         console.log(false);
+        
+        var city2Name="Frankfort";
+        console.log(city2Name);
+        
+        var city2Lat=38.1970;
+        console.log(city2Lat);
+        
+        var city2Lon=-84.8630;
+        console.log(city2Lon);
+        
+        var city2Pop=27453;
+        console.log(city2Pop);
+        
+        var city2Capital;
+        console.log(true);
+        
+        var city3Name="Bowling Green";
+        console.log(city3Name);
+        
+        var city3Lat=36.9817;
+        console.log(city3Lat);
+        
+        var city3Lon=-86.4444;
+        console.log(city3Lon);
+        
+        var city3Pop=61488
+        console.log(city3Pop);
+        
+        var city3Capital;
+        console.log(false);
+        
+        var totalPop=308428+27453+61488;
+        console.log("The total population of these cities is",totalPop);
+        
+        var averagePop=totalPop/3;
+        console.log(averagePop);
+        
+        var cities=["Lexington", "Frankfort","Bowling Green"];
+        console.log(cities[2]);
         
         
         
@@ -118,26 +157,26 @@
             .bindPopup(city1Popup);
         
 //         CITY2 MARKER CODE HERE
-//        var city2Popup = "<b>"+city2Name+"</b><br>"
-//                        +"<b>population</b>: "+city2Pop;
-//        
-//        if(city2Capital == true) {
-//            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city2Lat,city2Lon]).addTo(map)
-//            .bindPopup(city2Popup);
+        var city2Popup = "<b>"+city2Name+"</b><br>"
+                        +"<b>population</b>: "+city2Pop;
         
-//         CITY3 MARKER CODE HERE
-//        var city3Popup = "<b>"+city3Name+"</b><br>"
-//                        +"<b>population</b>: "+city3Pop;
-//        
-//        if(city3Capital == true) {
-//            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city3Lat,city3Lon]).addTo(map)
-//            .bindPopup(city3Popup);
+        if(city2Capital == true) {
+        city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city2Lat,city2Lon]).addTo(map)
+            .bindPopup(city2Popup);
+        
+        // CITY3 MARKER CODE HERE
+        var city3Popup = "<b>"+city3Name+"</b><br>"
+                        +"<b>population</b>: "+city3Pop;
+        
+        if(city3Capital == true) {
+            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city3Lat,city3Lon]).addTo(map)
+            .bindPopup(city3Popup);
           
     </script>
     
