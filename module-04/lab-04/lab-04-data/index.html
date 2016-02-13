@@ -51,16 +51,16 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Cleveland area suburds</h1>
+        <h2>Cities bordering the Emerald Necklace Metorparks System</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>Map authored by Cynde Estep</p>
+        <p>On the edge of the Emerald Necklace.</p>
+        <p>The Cleveland area has a Metropark System called the Emerald Necklace. Rocky River on the Western edge, Brecksville bordering the southern edge and Willoughby Hills on the Eastern edge.  Rocky River is an affulent suburb that is named after the river on its eastern border.  Brecksville, another affluent Cleveland suburb was named after Colonel John Breck, one of 4 men who purchased the surrounding area back in the early 1800s. Willoughby Hills, is an eastern suburb with two famous landmarks.  Squires Castle was built by a Standard Oil executive as a country estate but was never completed and is now part of the Cleveland Metroparks. The Louis Penfield House, is a house designed by Frank Llyod Wright on the banks of the Chagrin river and is one of three Wright home available for short-term rental.
         </p>
     </footer>
 
@@ -69,8 +69,8 @@
         var targetDiv = 'map';
 
         var options = {
-            center: [0, 0],
-            zoom: 2
+            center: [41.42,-81.60],
+            zoom: 10
         }
         map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -80,22 +80,60 @@
         
         // begin writing/editing Lab 04 code here
         
-
-//        for(/* add code here */) {
-//            
-//            var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        }
+        var cities = ["Rocky River", "Brecksville", "Willoughby Hills"];
+        console.log(cities);
         
+         var cityCoords = [
+        [41.4753,-81.8458],
+        [41.3100,-81.6289],
+        [41.5881,-81.4425],
+         ];
+        console.log(cityCoords[0]);
+        console.log(cityCoords[1]);
+        console.log(cityCoords[2]);
+             
+        var cityPop = [19988,13533,9450];
+        console.log(cityPop[0]);
+        console.log(cityPop[1]);
+        console.log(cityPop[2]);
+        
+        var cityCapital = [false,false,false]
+        console.log(cityCapital[0]);
+        console.log(cityCapital[1]);
+        console.log(cityCapital[2]);
+                
+        for (var i = 0; i < cities.length; i++) {
+        console.log(i); 
+        console.log(cities[i]);
+        };   
+        
+        var popup = "<b>"+[cities[0]]+"</b><br>"
+        +"<b>population</b>: "+[cityPop[0]];
+
+        if(cityCapital[0]==true) {
+        popup += "<br>Is the capital city."; 
+        } 
+  
+        var popup = "<b>"+[cities[1]]+"</b><br>"
+        +"<b>population</b>: "+[cityPop[1]];
+
+        if(cityCapital[1]==true) {
+        popup += "<br>Is the capital city."; 
+        } 
+
+           var popup = "<b>"+[cities[2]]+"</b><br>"
+        +"<b>population</b>: "+[cityPop[2]];
+
+        if(cityCapital[2]==true) {
+        popup += "<br>Is the capital city."; 
+        } 
+           
+        
+   //     L.marker(cityCoords[0],cityCoords[1],cityCoords[2]).addTo(map)
+ //           .bindPopup(cityCoords[0],cityCoords[1],cityCoords[2]Popup);
+   
+        
+              
         // end writing/editing Lab 04 code here
         
           
