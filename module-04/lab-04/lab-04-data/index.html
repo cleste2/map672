@@ -81,58 +81,34 @@
         // begin writing/editing Lab 04 code here
         
         var cities = ["Rocky River", "Brecksville", "Willoughby Hills"];
-        console.log(cities);
+        
         
          var cityCoords = [
-        [41.4753,-81.8458],
-        [41.3100,-81.6289],
-        [41.5881,-81.4425],
+        [41.4753, -81.8458],
+        [41.3100, -81.6289],
+        [41.5881, -81.4425],
          ];
-        console.log(cityCoords[0]);
-        console.log(cityCoords[1]);
-        console.log(cityCoords[2]);
-             
-        var cityPop = [19988,13533,9450];
-        console.log(cityPop[0]);
-        console.log(cityPop[1]);
-        console.log(cityPop[2]);
+                     
+        var cityPops = [19988, 13533, 9450];
         
-        var cityCapital = [false,false,false]
-        console.log(cityCapital[0]);
-        console.log(cityCapital[1]);
-        console.log(cityCapital[2]);
+        
+        var cityCapitals = [false, false, false]
+        
                 
         for (var i = 0; i < cities.length; i++) {
-        console.log(i); 
-        console.log(cities[i]);
-        };   
+               
         
-        var popup = "<b>"+[cities[0]]+"</b><br>"
-        +"<b>population</b>: "+[cityPop[0]];
+            var popup = "<b>"+cities[i]+"</b><br>"
+                +"<b>population</b>: "+cityPops[i];
 
-        if(cityCapital[0]==true) {
-        popup += "<br>Is the capital city."; 
-        } 
+            if(cityCapitals[i]===true) {
+                popup += "<br>Is the capital city."; 
+            } 
   
-        var popup = "<b>"+[cities[1]]+"</b><br>"
-        +"<b>population</b>: "+[cityPop[1]];
-
-        if(cityCapital[1]==true) {
-        popup += "<br>Is the capital city."; 
-        } 
-
-           var popup = "<b>"+[cities[2]]+"</b><br>"
-        +"<b>population</b>: "+[cityPop[2]];
-
-        if(cityCapital[2]==true) {
-        popup += "<br>Is the capital city."; 
-        } 
-           
         
-   //     L.marker(cityCoords[0],cityCoords[1],cityCoords[2]).addTo(map)
- //           .bindPopup(cityCoords[0],cityCoords[1],cityCoords[2]Popup);
-   
-        
+            L.marker(cityCoords[i]).addTo(map)
+                .bindPopup(popup);
+        }
               
         // end writing/editing Lab 04 code here
         
