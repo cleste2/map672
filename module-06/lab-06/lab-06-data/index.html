@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lab 06 Starter Template</title>
+    <title>Lab 06 </title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -47,30 +47,36 @@
         .kentucky-blue {
             color: #165bb6;
         }
-        
+
+        .missouri-maroon {
+            color: maroon;
+        }
+        .tennessee-orange {
+            color: orange
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Map of Three Cities</h1>
+        <h2>Louisville, St Louis and Nashville</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
         <p>Map authored by Cynde Estep</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>This map three large cities and their populations.</p>
+        <p>The three cities are Louisville, St Louis and Nashville. Each is in a different state and the markers are color coded accordingly. The popup includes that particular cities population. 
         </p>
     </footer>
 
     <script>
 
         var map = L.map('map', {
-            center: [35,-86],
-            zoom: 6,
+            center: [37,-87],
+            zoom: 7,
         });
        
         var tiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
@@ -96,7 +102,7 @@
                 properties: {
                     coordinates: [38.6272, -90.1978],
                     population: 318416,
-                    state: "KY"
+                    state: "MO"
                 }
             },
             
@@ -116,20 +122,35 @@
             
             var props = cities[i].properties;
             
-            var popup = "I am a temporary string value";
+            var popup = buildPopup(cities[i].name, props.population,                     props.state);
             
             L.marker(props.coordinates).addTo(map)
                 .bindPopup(popup);
         
+            function buildPopup(name, pop, state) {
+                
+                if (state === 'KY') {
+                    var colorClass = 'kentucky-blue';
+                }   else if (state === 'TN'){
+                    var colorClass = 'tennessee-orange';
+                }   else if (state === 'MO'){
+                    var colorClass = 'missouri-maroon'    
+                }       
+                
+                return "<div class='"+colorClass+"'><b>"+name+"</b><br>"+                     "<b>Population: " + pop.toLocaleString()+"</b></div>"
+                
+            }
             // console.log(cities[i]);
             // console.log(cities[i].properties); 
             // console.log(cities[i].properties.coordinates)
             // console.log(cities[i].properties.population)
             
    
-            console.log(props);
-            
-        }
+           
+            } 
+  
+        
+        
         
             
         
