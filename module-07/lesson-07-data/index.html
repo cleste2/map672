@@ -54,9 +54,10 @@
     </header>
 
     <div id='map'></div>
-
+    
+     
     <footer>
-        <p>Map authored by YOUR NAME</p>
+        <p>Map authored by Cynde Estep</p>
         <p>Additional information about the data and map goes here.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.
         </p>
@@ -64,7 +65,44 @@
 
     <script>
 
-      // build your Leaflet map here!
+        var map = L.map('map');
+        map.setView([38.0489,-96.5025], 4);
+       
+        var center = map.getCenter();
+        console.log(center.lat, center.lng); // outputs the specific latitude and the longitude values
+        var zoom = map.getZoom();
+        console.log(zoom); // returns a Number
+        var bounds = map.getBounds();
+        console.log(bounds); // returns a LatLngBounds object
+        
+        var bounds = map.getBounds(); // returns the LatLngBounds object
+        var bottomLeft = bounds.getSouthWest(); // returns a LatLng object
+        console.log(bottomLeft.lat, bottomLeft.lng); // outputs the lat and lng values
+        
+       var OpenStreetMap_HOT =                     L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+	   maxZoom: 19,
+	   attribution: '&copy; <a         href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+        });
+        map.addLayer(OpenStreetMap_HOT);
+        
+        var mapCenter = L.latLng(38.0489,-96.5025);
+        var otherCity = L.latLng(38.1489,-96.5125);
+        var distance = mapCenter.distanceTo(otherCity);
+        console.log(distance); // will output distance between cities in meters
+        L.marker([38.0297, -84.4947]).addTo(map); // places a marker on Lexington
+        
+        var redIguanaLocation = L.latLng(40.7718,-111.9124);
+        var redIguanaMarker = L.marker(redIguanaLocation, {
+        draggable: true   
+        });
+        redIguanaMarker.addTo(map);
+        redIguanaMarker.on('drag', function(e) {
+                console.log(e.target.getLatLng());
+        });
+        
+        map.on('click', function(e) {
+            console.log(e.latlng);
+        });
                   
     </script>
     
