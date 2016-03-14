@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Lesson 07 Template</title>
+    <title>Lesson 07 </title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
@@ -93,7 +93,8 @@
         
         var redIguanaLocation = L.latLng(40.7718,-111.9124);
         var redIguanaMarker = L.marker(redIguanaLocation, {
-        draggable: true   
+            draggable: true,  
+            
         });
         redIguanaMarker.addTo(map);
         redIguanaMarker.on('drag', function(e) {
@@ -103,7 +104,67 @@
         map.on('click', function(e) {
             console.log(e.latlng);
         });
-                  
+        
+               
+        var redIguanaLocation = L.latLng(40.7718,-111.9124);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400);
+        redIguanaCircle.addTo(map);
+
+        redIguanaCircle.setStyle({
+            color: "#d72b1e", // sets stroke color to red
+            weight: 15, // sets the stroke width to 15 pixels
+            fillColor: "#d72b1e",  // sets fill color to red
+            fillOpacity: 1  // sets the fill opacity to 1
+});
+redIguanaCircle.addTo(map);
+        //creates a layer grouping
+        var iguanaRestaurants = L.layerGroup();
+       // sets first layer stroke color and fill color to red
+        var redIguanaOptions = {
+            color: 'red',
+            fillColor: 'red'
+};
+        //creates the 2nd layer which is blue iguana and sets the stroke and fill color to blue
+        var blueIguanaOptions = {
+            color: '#03f',
+            fillColor: '#03f'
+};
+        //identifies the latitude, longitude and radius of the red iguana layer
+        var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
+        //identfies the red iguana with the color red
+        redIguana.color = 'red';
+        //adds the red iguana circle to the map
+        redIguana.addTo(iguanaRestaurants);
+        //sets the blue iguana latitutde, longiture and radius  
+        var blueIguana = L.circle([40.7657, -111.8930], 300,  
+       // specifies the blue iguana options
+        blueIguanaOptions);
+        // sets the blue iguana circle to blue
+        blueIguana.color = 'blue';
+        //adds the blue iguana layer to the iguana restaurants group
+        blueIguana.addTo(iguanaRestaurants);
+        //adds the iguana restaurants to the map
+        iguanaRestaurants.addTo(map);
+        //loops through each layer, creating a function that when you mouseover that location, the stroke and fill colors turn yellow
+        iguanaRestaurants.eachLayer(function(layer) {
+            layer.on('mouseover', function(e) {
+                e.target.setStyle({
+                color: 'yellow',
+                fillColor: 'yellow'
+        });
+    });
+            //creates a function when you mouseout the color goes back to the original color 
+            layer.on('mouseout', function(e) {
+                //if the original color was red, it goes back to red
+                if(e.target.color == 'red') {
+                    e.target.setStyle(redIguanaOptions);
+                //if the original coloe was blue, it goes back to blue
+        }       else if (e.target.color == 'blue') {
+                    e.target.setStyle(blueIguanaOptions);      
+        }
+    });
+});
+   
     </script>
     
 </body>
